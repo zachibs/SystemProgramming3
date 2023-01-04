@@ -1,7 +1,7 @@
-#include <stdio.h>;
-#include "funtions.h";
+#include <stdio.h>
+#include "funtions.h"
 
-void main()
-{
+
+void main(){
  
 }

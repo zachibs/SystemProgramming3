@@ -1,5 +1,5 @@
-#include <stdio.h>;
-#include "funtions.h";
+#include <stdio.h>
+#include "funtions.h"
 
 void shift_element(int* arr, int i){
     int* elementAddress;
@@ -21,8 +21,22 @@ void shift_element(int* arr, int i){
             temp = secondTemp;
         }
     }
+}
+
+void insertion_sort(int* arr, int len){
+  int *firstIndex;
+  int *secondIndex;
+  int temp;
+
+  for (firstIndex = arr + 1; firstIndex < arr + len; firstIndex++) {
+    for (secondIndex = firstIndex; secondIndex > arr && *(secondIndex-1) > *secondIndex; secondIndex--) {
+      temp = *secondIndex;
+      shift_element(secondIndex-1,1);
+      *(secondIndex-1) = temp;
+    }
+  }
 
     for(int i = 0; i < sizeof(arr); i++){
-        printf("element at %d, is %d\n", i, arr[i]);
-    }
+    printf("element at %d, is %d\n", i, arr[i]);
+}
 }
