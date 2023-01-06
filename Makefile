@@ -1,8 +1,8 @@
 question1.o: question1.c
-	gcc -Wall -c question1.c
+	gcc -Wall -fpic -c question1.c
 
 question2.o: question2.c
-	gcc -Wall -c question2.c
+	gcc -Wall -fpic -c question2.c
 
 
 isort: question1.o
