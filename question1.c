@@ -14,9 +14,10 @@ void shift_element(int* arr, int i){
         if(index == 0){
         temp = *nextElementAddress;  
         *nextElementAddress = *elementAddress; 
+        secondTemp = 0;
         } 
         else{
-            int secondTemp = *nextElementAddress;  
+            secondTemp = *nextElementAddress;  
             *nextElementAddress = temp;  
             temp = secondTemp;
         }
@@ -39,4 +40,28 @@ void insertion_sort(int* arr, int len){
     for(int i = 0; i < sizeof(arr); i++){
     printf("element at %d, is %d\n", i, arr[i]);
 }
+}
+
+int main(){
+  int numberArray[FIFTY];
+  int index;
+
+  for (index = 0; index < FIFTY; index++){
+    scanf("%d", &(*(numberArray + index)));
+  }
+
+  insertion_sort(numberArray, FIFTY);
+
+  
+  for (int i = 0; i < FIFTY; ++i) {
+      printf("%d", *(numberArray+i));
+      if (i < FIFTY - 1) {
+          printf(",");
+      } else {
+          printf("\n");
+      }
+  }
+
+  return 0;
+
 }

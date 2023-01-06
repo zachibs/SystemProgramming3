@@ -14,3 +14,4 @@ void print_similar_words(char*);
 // defines:
 #define LINE 256
 #define WORD 30
+#define FIFTY 50

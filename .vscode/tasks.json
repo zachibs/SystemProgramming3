@@ -8,7 +8,6 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
-                "question1.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

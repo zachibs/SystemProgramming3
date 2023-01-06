@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
- int getlineNew(char s[LINE]){
+ int getlineNew(char s[]){
     int count = 0;
     int i;
     for (i = 0; i < LINE - 1; i++){
@@ -16,7 +16,7 @@
     return count;
 }
 
-int getword(char s[WORD]){
+int getword(char s[]){
     int count = 0;
     int i;
 
@@ -105,13 +105,20 @@ while (getword(word)>0){
 }
 }
 
-void main()
+int main()
 {
-    char *word2 = "abtra";
-    char *word1 = "aba";
+    char firstWord[WORD];
+    getword(firstWord);
+    char choice;
+    choice = getchar();
 
-    print_similar_words(word1);
-
-    // printf("is Similar=%d\n", isSimilar);
+    if(choice == 'b'){
+        print_similar_words(firstWord);
+    } else{
+        print_lines(firstWord);
+    }
+    
+    return 1;
+  
 }
 
