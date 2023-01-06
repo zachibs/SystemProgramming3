@@ -10,3 +10,7 @@ int substring( char*, char*);
 int similar (char*, char*, int);
 void print_lines(char*);
 void print_similar_words(char*);
+
+// defines:
+#define LINE 256
+#define WORD 30

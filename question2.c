@@ -2,55 +2,51 @@
 #include <string.h>
 #include <stdio.h>
 
- int getlineNew(char s[]){
-    char line [250];
+ int getlineNew(char s[LINE]){
     int count = 0;
-    char ch;
     int i;
-    for (i = 0; i < sizeof(line) - 1; i++){
-        scanf("%c",&ch);
-        if((ch == '\n') && (ch == '\r')){
+    for (i = 0; i < LINE - 1; i++){
+        s[i] = getchar();
+        if((s[i] == '\n') || (s[i] == '\r')){
             break;
         }
-        line[i] = ch;
         count ++;
     }
-    line[i] = '\0';
+    s[i] = '\0';
+    return count;
 }
 
-int getword(char s[]){
-    char line [30];
+int getword(char s[WORD]){
     int count = 0;
-    char ch;
     int i;
 
-    for (i = 0; i < sizeof(line) - 1; i++){
-        scanf("%c",&ch);
-        if((ch == '\n') && (ch == '\t' && (ch != ' '))){
+    for (i = 0; i < WORD - 1; i++){
+        s[i] = getchar();
+        if((s[i] == '\n') || (s[i] == '\t') || (s[i] == ' ')){
             break;
         }
-        line[i] = ch;
         count ++;
     }
-    line[i] = '\0';
+    s[i] = '\0';
+
+    return count;
 }
 
-int strcontain (const char* str1 ,const char* str2 ){
+int substring (char* str1 ,char* str2 ){
     if (str1 == NULL || str2 == NULL)
     {
         return 0;
     }
     
-    int x,j;
+    int x = 0;
     for (int i = 0; i < strlen(str1); i++)
     {
-        if (str2[x] == str1[j])
+        if (str2[x] == str1[i])
         {
-            x++, j++;
+            x++;
         }
         else
         {
-            j++;
             x = 0;
         }
        if (x == strlen(str2))
@@ -88,14 +84,34 @@ int similar (char *s, char *t, int n){
     
 }
 
+void print_lines(char * str){
+    char line [LINE];
+    while (getlineNew(line)>0){
+        if (substring(line,str)){
+            printf("%s\n", line);
+        }
+
+    }
+}
+
+void print_similar_words(char * str){
+
+char word [WORD];
+while (getword(word)>0){
+    if (similar(word,str,1) || similar(word,str,0)){
+        printf("%s",word);
+    }
+
+}
+}
 
 void main()
 {
     char *word2 = "abtra";
     char *word1 = "aba";
 
-    int isSimilar = similar(word2, word1, 2);
+    print_similar_words(word1);
 
-    printf("is Similar=%d\n", isSimilar);
+    // printf("is Similar=%d\n", isSimilar);
 }
 
