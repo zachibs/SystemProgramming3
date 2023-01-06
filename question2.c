@@ -3,33 +3,32 @@
 #include <stdio.h>
 
  int getlineNew(char s[]){
-    int count = 0;
     int i;
+    char tempChar;
     for (i = 0; i < LINE - 1; i++){
-        s[i] = getchar();
-        if((s[i] == '\n') || (s[i] == '\r')){
+        tempChar = getchar();
+        if((tempChar == '\n') || (tempChar == '\r')){
             break;
         }
-        count ++;
+        s[i] = tempChar;
     }
     s[i] = '\0';
-    return count;
+    return i;
 }
 
 int getword(char s[]){
-    int count = 0;
     int i;
-
+    char tempChar;
     for (i = 0; i < WORD - 1; i++){
-        s[i] = getchar();
-        if((s[i] == '\n') || (s[i] == '\t') || (s[i] == ' ')){
+        tempChar = getchar();
+        if((tempChar == '\n') || (tempChar == '\t') || (tempChar == ' ')){
             break;
         }
-        count ++;
+        s[i] = tempChar;
     }
     s[i] = '\0';
 
-    return count;
+    return i;
 }
 
 int substring (char* str1 ,char* str2 ){
@@ -86,7 +85,7 @@ int similar (char *s, char *t, int n){
 
 void print_lines(char * str){
     char line [LINE];
-    while (getlineNew(line)>0){
+    while (getlineNew(line) < LINE - 1){
         if (substring(line,str)){
             printf("%s\n", line);
         }
@@ -97,7 +96,7 @@ void print_lines(char * str){
 void print_similar_words(char * str){
 
 char word [WORD];
-while (getword(word)>0){
+while (getword(word) < WORD - 1){
     if (similar(word,str,1) || similar(word,str,0)){
         printf("%s",word);
     }
@@ -107,7 +106,7 @@ while (getword(word)>0){
 
 int main()
 {
-    char firstWord[WORD];
+    char firstWord[WORD] = {};
     getword(firstWord);
     char choice;
     choice = getchar();
