@@ -36,10 +36,6 @@ void insertion_sort(int* arr, int len){
       *(secondIndex-1) = temp;
     }
   }
-
-    for(int i = 0; i < sizeof(arr); i++){
-    printf("element at %d, is %d\n", i, arr[i]);
-}
 }
 
 int main(){
