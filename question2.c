@@ -98,7 +98,7 @@ void print_similar_words(char * str){
 char word [WORD];
 while (getword(word) < WORD - 1){
     if (similar(word,str,1) || similar(word,str,0)){
-        printf("%s",word);
+        printf("%s\n",word);
     }
 
 }
