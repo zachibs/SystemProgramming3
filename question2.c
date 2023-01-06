@@ -117,7 +117,7 @@ int main()
         print_lines(firstWord);
     }
     
-    return 1;
+    return 0;
   
 }
 
