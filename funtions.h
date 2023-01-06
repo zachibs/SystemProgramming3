@@ -4,7 +4,7 @@ void insertion_sort(int*, int);
 
 
 // question 2
-int getline(char[]);
+int getlineNew(char[]);
 int getword(char[]);
 int substring( char*, char*);
 int similar (char*, char*, int);
